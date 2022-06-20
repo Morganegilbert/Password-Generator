@@ -31,7 +31,28 @@ function generatePassword() {
       return str;
     }
     else {
-      alert('Password does not include special characters.');
+      var confirmNumbers = window.confirm("Would you like to include numbers?");
+      if (confirmNumbers) {
+        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+      
+        let str = '';
+        for (let i = 0; i < length; i++) {
+          str += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return str;
+      }
+      else {
+
+        // alert('Password does not include special characters.');
+        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+      
+        let str = '';
+        for (let i = 0; i < length; i++) {
+          str += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return str;
+      }
+
     }
   }
   return "password";
