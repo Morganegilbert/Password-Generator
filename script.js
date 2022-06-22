@@ -60,31 +60,57 @@ function generatePassword() {
     var confirmSpecial = window.confirm('Would you like to include special characters?');
     var confirmNumbers = window.confirm('Would you like to include numbers?');
     var confirmUpper = window.confirm(' Would you like to include uppercase?');
+    var confirmLower = window.confirm('Would you like to include lowercase?');
 
-    if (confirmSpecial && confirmNumbers && confirmUpper) {
+    if (confirmSpecial && confirmNumbers && confirmUpper && confirmLower) {
       return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length); 
     }
-    if (confirmSpecial && confirmNumbers && !confirmUpper) {
-      return selectPassword('abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length); 
+    if (confirmSpecial && confirmNumbers && confirmUpper && !confirmLower) {
+      return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()', length); 
     }
-    if (confirmSpecial && !confirmNumbers && !confirmUpper) {
-      return selectPassword('abcdefghijklmnopqrstuvwxyz!@#$%^&*()', length); 
+    if (confirmSpecial && confirmNumbers && !confirmUpper && !confirmLower) {
+      return selectPassword('1234567890!@#$%^&*()', length); 
     }
-    if (!confirmSpecial && !confirmNumbers && !confirmUpper) {
+    if (confirmSpecial && !confirmNumbers && !confirmUpper && !confirmLower) {
+      return selectPassword('!@#$%^&*()', length); 
+    }
+    if (!confirmSpecial && !confirmNumbers && !confirmUpper && !confirmLower) {
+      alert('Password must include at least one criteria!');
+      return generatePassword();    
+    }
+    if (!confirmSpecial && !confirmNumbers && !confirmUpper && confirmLower) {
       return selectPassword('abcdefghijklmnopqrstuvwxyz', length); 
     }
-    if (!confirmSpecial && confirmNumbers && confirmUpper) {
+    if (!confirmSpecial && confirmNumbers && confirmUpper && !confirmLower) {
+      return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890', length); 
+    }
+    if (confirmSpecial && !confirmNumbers && confirmUpper && !confirmLower) {
+      return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()', length); 
+    }
+    if (confirmSpecial && confirmNumbers && !confirmUpper && confirmLower) {
+      return selectPassword('abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length); 
+    }
+    if (confirmSpecial && !confirmNumbers && !confirmUpper && confirmLower) {
+      return selectPassword('abcdefghijklmnopqrstuvwxyz!@#$%^&*()', length); 
+    }
+    if (!confirmSpecial && !confirmNumbers && !confirmUpper && confirmLower) {
+      return selectPassword('abcdefghijklmnopqrstuvwxyz', length); 
+    }
+    if (!confirmSpecial && confirmNumbers && confirmUpper && confirmLower) {
       return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890', length); 
     }
-    if (!confirmSpecial && !confirmNumbers && confirmUpper) {
+    if (!confirmSpecial && !confirmNumbers && confirmUpper && confirmLower) {
       return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', length); 
     }
-    if (confirmSpecial && !confirmNumbers && confirmUpper) {
+    if (confirmSpecial && !confirmNumbers && confirmUpper && confirmLower) {
       return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()', length); 
     }
-    if (!confirmSpecial && confirmNumbers && !confirmUpper) {
+    if (!confirmSpecial && confirmNumbers && !confirmUpper && confirmLower) {
       return selectPassword('abcdefghijklmnopqrstuvwxyz1234567890', length); 
     }
+    // if (confirmSpecial && confirmNumbers && confirmUpper && confirmLower) {
+    //   return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length); 
+    // }
     // if (confirmSpecial) {
     //   if (confirmNumbers) {
     //       return passwordDetermination("Would you like to include uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', 'abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length);
