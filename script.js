@@ -58,30 +58,59 @@ function generatePassword() {
 
   if (length >= 8 || length < 128) {
     var confirmSpecial = window.confirm('Would you like to include special characters?');
-    if (confirmSpecial) {
-      var confirmNumbers = window.confirm('Would you like to include numbers?');
-      if (confirmNumbers) {
-          return passwordDetermination("Would you like to include Uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', 'abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length);
-      }
-      else {
-        return passwordDetermination("Would you like to include Uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()', 'abcdefghijklmnopqrstuvwxyz!@#$%^&*()', length);
-      }
-    }
+    var confirmNumbers = window.confirm('Would you like to include numbers?');
+    var confirmUpper = window.confirm(' Would you like to include uppercase?');
 
-    else {
-      var confirmNumbers = window.confirm('Would you like to include numbers?');
-        if (confirmNumbers) {
-            return passwordDetermination("Would you like to include Uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890', 'abcdefghijklmnopqrstuvwxyz1234567890', length);
-        }
-        else {
-            return passwordDetermination("Would you like to include Uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', 'abcdefghijklmnopqrstuvwxyz', length);
-        } 
+    if (confirmSpecial && confirmNumbers && confirmUpper) {
+      return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length); 
     }
+    if (confirmSpecial && confirmNumbers && !confirmUpper) {
+      return selectPassword('abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length); 
+    }
+    if (confirmSpecial && !confirmNumbers && !confirmUpper) {
+      return selectPassword('abcdefghijklmnopqrstuvwxyz!@#$%^&*()', length); 
+    }
+    if (!confirmSpecial && !confirmNumbers && !confirmUpper) {
+      return selectPassword('abcdefghijklmnopqrstuvwxyz', length); 
+    }
+    if (!confirmSpecial && confirmNumbers && confirmUpper) {
+      return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890', length); 
+    }
+    if (!confirmSpecial && !confirmNumbers && confirmUpper) {
+      return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', length); 
+    }
+    if (confirmSpecial && !confirmNumbers && confirmUpper) {
+      return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()', length); 
+    }
+    if (!confirmSpecial && confirmNumbers && !confirmUpper) {
+      return selectPassword('abcdefghijklmnopqrstuvwxyz1234567890', length); 
+    }
+    // if (confirmSpecial) {
+    //   if (confirmNumbers) {
+    //       return passwordDetermination("Would you like to include uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', 'abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length);
+    //   }
+    //   else {
+    //     return passwordDetermination("Would you like to include uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()', 'abcdefghijklmnopqrstuvwxyz!@#$%^&*()', length);
+    //   }
+    // }
+
+    // else {
+    //   var confirmNumbers = window.confirm('Would you like to include numbers?');
+    //     if (confirmNumbers) {
+    //         return passwordDetermination("Would you like to include Uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890', 'abcdefghijklmnopqrstuvwxyz1234567890', length);
+    //     }
+    //     else {
+    //         return passwordDetermination("Would you like to include Uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', 'abcdefghijklmnopqrstuvwxyz', length);
+    //     } 
+    // }
   }
 
 return "password";
 }
 
+
+
+// Function parameters for above generatePassword
 function selectPassword(passwordString, selectedLength) {
   // alert('Password does not include special characters.');
   let characters = passwordString;
@@ -117,7 +146,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
