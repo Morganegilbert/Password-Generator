@@ -12,35 +12,27 @@
 #### If the number is at least 8 and less than 128, a new prompt will appear asking if the user would like to include special characters.
 <br>
 
-#### If the user accepts special characters, a new prompt will appear asking if the user would like to include numbers.
-#### Morgan Gilbert (which includes a recent photo of me and "Professional Portfolio")
-#### Simple gray-scale background made in MS Paint
+#### A prompt will appear asking:
+* Would you like to include special characters?
+* Would you like to include numbers?
+* Would you like to include uppercase letters?
+* Would you like to include lowercase letters?
+#### Each criteria can either be accepted "ok" or denied "cancel"
 <br>
 
-### 3rd. About Me:
-#### Title - About Me
-#### Paragraph with short bio
+### If all character criteria has been denied "cancel" then a new promp will appear stating that "Password must include at least one criteria" and the sequence will restart.
 <br>
 
-### 4th. Work:
-#### 4 sections of filler since not enough projects yet to fill space
-#### Last section is for Horiseon (did not add Run Buddy since it is still very much a work in progress...)
+### One character criteria has been decided, then a password will appear in the 'Password' box based on the inputs provided.
 <br>
 
-### 5th. Footer:
-#### Title - Contact Me
-#### Includes five links: 
-* Phone number (will call on click)
-* email (will pull up email on click)
-* GitHub (directs to my GitHub)
-* Twitter (do not have a twitter, so sends to main Twitter page)
-* and Spotify (also do not have a spotify, will send to main Spotify page)
+### The password generator can be restarted after a password has been generated.
 
 # Screenshot Below:
-![Professional Portfolio Screenshot](./assets/images/demo.jpg "Professional Portfolio Screenshot")
+![Password Generator Screenshot](./assets/images/demo.jpg "Password Generator")
 <br>
 <br>
 
 # URL Links:
 <br>
-## Professional Portfolio: https://morganegilbert.github.io/Professional-Portfolio-UI/
+## Password Generator: https://morganegilbert.github.io/Password-Generator/
