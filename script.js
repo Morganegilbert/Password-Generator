@@ -1,6 +1,3 @@
-// Assignment code here
-
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -9,59 +6,21 @@ function generatePassword() {
   var length = prompt('How long?')
   console.log(length);
 
-  // if the length is less than 8 or greater than 128, will return to ask How long?
+  // If the length is less than 8 or greater than 128, will return to ask How long?
   if (length < 8 || length > 128) {
       alert('Password must be a number of at least 8 and less than 128 characters.');
       return generatePassword();
   }
 
-  // if the length is at least 8 and less than 128, will continue to confirm special characters
-//   if (length >= 8 || length < 128) {
-//     var confirmSpecial = window.confirm('Would you like to include special characters?');
-//     if (confirmSpecial) {
-//       let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()';
-      
-//       let str = '';
-//       for (let i = 0; i < length; i++) {
-//         str += characters.charAt(Math.floor(Math.random() * characters.length));
-//       }
-//       return str;
-//     }
-//     else {
-//       var confirmNumbers = window.confirm("Would you like to include numbers?");
-//       if (confirmNumbers) {
-//         let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
-      
-//         let str = '';
-//         for (let i = 0; i < length; i++) {
-//           str += characters.charAt(Math.floor(Math.random() * characters.length));
-//         }
-//         return str;
-//       }
-//       else {
-
-//         // alert('Password does not include special characters.');
-//         let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-      
-//         let str = '';
-//         for (let i = 0; i < length; i++) {
-//           str += characters.charAt(Math.floor(Math.random() * characters.length));
-//         }
-//         return str;
-//       }
-
-//     }
-//   }
-//   return "password";
-// }
-
-
+  // Adding criteria for true/false statements and outcomes
   if (length >= 8 || length < 128) {
+    // Variables for special, number, uppercase, and lowercase characters
     var confirmSpecial = window.confirm('Would you like to include special characters?');
     var confirmNumbers = window.confirm('Would you like to include numbers?');
-    var confirmUpper = window.confirm(' Would you like to include uppercase?');
-    var confirmLower = window.confirm('Would you like to include lowercase?');
+    var confirmUpper = window.confirm(' Would you like to include uppercase letters?');
+    var confirmLower = window.confirm('Would you like to include lowercase letters?');
 
+    // Outcomes depending on True/False scenerios for character selections
     if (confirmSpecial && confirmNumbers && confirmUpper && confirmLower) {
       return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length); 
     }
@@ -136,37 +95,22 @@ return "password";
 
 
 
-// Function parameters for above generatePassword
+// Function parameters for above generatePassword. 
 function selectPassword(passwordString, selectedLength) {
   // alert('Password does not include special characters.');
   let characters = passwordString;
   console.log("This is my length.", selectedLength)
 
-      
+  // Creates string outcome, random generation through return selectPassword above which utilizes the string parametwer provided
   let str = '';
   for (let i = 0; i < selectedLength; i++) {
     str += characters.charAt(Math.floor(Math.random() * characters.length));
   }
-  console.log("This is my password.", str)
+  // console.log("This is my password.", str)
   return str;
 }
 
-function passwordDetermination(confirmationString, confirmedPassword, canceledPassword, selectedLength) {
-  var confirmNumbers = window.confirm(confirmationString);
-  if (confirmNumbers) {
-    console.log("This is my password?", confirmedPassword)
-    return selectPassword(confirmedPassword, selectedLength);
-
-  }
-  else {
-
-    // alert('Password does not include special characters.');
-    console.log("This is my password..", canceledPassword)
-    return selectPassword(canceledPassword, selectedLength);
-  }
-}
-
-// Write password to the #password input
+// Writes password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
