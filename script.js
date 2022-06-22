@@ -67,27 +67,6 @@ function generatePassword() {
     if (!confirmSpecial && confirmNumbers && !confirmUpper && confirmLower) {
       return selectPassword('abcdefghijklmnopqrstuvwxyz1234567890', length); 
     }
-    // if (confirmSpecial && confirmNumbers && confirmUpper && confirmLower) {
-    //   return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length); 
-    // }
-    // if (confirmSpecial) {
-    //   if (confirmNumbers) {
-    //       return passwordDetermination("Would you like to include uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', 'abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()', length);
-    //   }
-    //   else {
-    //     return passwordDetermination("Would you like to include uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()', 'abcdefghijklmnopqrstuvwxyz!@#$%^&*()', length);
-    //   }
-    // }
-
-    // else {
-    //   var confirmNumbers = window.confirm('Would you like to include numbers?');
-    //     if (confirmNumbers) {
-    //         return passwordDetermination("Would you like to include Uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890', 'abcdefghijklmnopqrstuvwxyz1234567890', length);
-    //     }
-    //     else {
-    //         return passwordDetermination("Would you like to include Uppercase?", 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', 'abcdefghijklmnopqrstuvwxyz', length);
-    //     } 
-    // }
   }
 
 return "password";
@@ -97,16 +76,13 @@ return "password";
 
 // Function parameters for above generatePassword. 
 function selectPassword(passwordString, selectedLength) {
-  // alert('Password does not include special characters.');
   let characters = passwordString;
-  console.log("This is my length.", selectedLength)
 
   // Creates string outcome, random generation through return selectPassword above which utilizes the string parametwer provided
   let str = '';
   for (let i = 0; i < selectedLength; i++) {
     str += characters.charAt(Math.floor(Math.random() * characters.length));
   }
-  // console.log("This is my password.", str)
   return str;
 }
 
