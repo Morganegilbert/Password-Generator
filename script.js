@@ -40,6 +40,9 @@ function generatePassword() {
     if (!confirmSpecial && !confirmNumbers && !confirmUpper && confirmLower) {
       return selectPassword('abcdefghijklmnopqrstuvwxyz', length); 
     }
+    if (!confirmSpecial && confirmNumbers && !confirmUpper && !confirmLower) {
+      return selectPassword('1234567890', length); 
+    }
     if (!confirmSpecial && confirmNumbers && confirmUpper && !confirmLower) {
       return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890', length); 
     }
@@ -51,6 +54,9 @@ function generatePassword() {
     }
     if (confirmSpecial && !confirmNumbers && !confirmUpper && confirmLower) {
       return selectPassword('abcdefghijklmnopqrstuvwxyz!@#$%^&*()', length); 
+    }
+    if (!confirmSpecial && !confirmNumbers && confirmUpper && !confirmLower) {
+      return selectPassword('ABCDEFGHIJKLMNOPQRSTUVWXYZab', length); 
     }
     if (!confirmSpecial && !confirmNumbers && !confirmUpper && confirmLower) {
       return selectPassword('abcdefghijklmnopqrstuvwxyz', length); 
